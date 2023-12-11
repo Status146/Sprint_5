@@ -3,6 +3,7 @@ from locators import Locators
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+
 class TestConstructor:
     def test_sauces_conversion(self, driver):
         driver.find_element(*Locators.SAUCES_BTN).click()
@@ -20,4 +21,3 @@ class TestConstructor:
         driver.find_element(*Locators.BUNS_BTN).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.BUNS_SECTION))
         assert driver.find_element(*Locators.BUNS_SECTION).is_displayed()
-

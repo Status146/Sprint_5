@@ -1,4 +1,5 @@
 import data
+import helpers
 from conftest import driver
 from locators import Locators
 from test_util import register
@@ -11,7 +12,7 @@ class TestRegistration:
         driver.find_element(*Locators.ENTER_IN_ACC_BTN).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.REGISTRATION_LINK))
         driver.find_element(*Locators.REGISTRATION_LINK).click()
-        register(driver, data.name, data.generate_email(), data.generate_password())
+        register(driver, data.name, helpers.generate_email(), helpers.generate_password())
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(Locators.ENTER_BTN))
         assert driver.find_element(*Locators.ENTER_BTN).is_displayed()
 
